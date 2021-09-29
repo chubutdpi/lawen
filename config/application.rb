@@ -18,5 +18,18 @@ module Lawen
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    # Ruta donde la libreria I18n debería buscar los archivos de traducción
+    I18n.load_path += Dir[Rails.root.join('lib', 'locale', '*.{rb,yml}')]
+
+    # Traducciones disponibles permitidas por la aplicación
+    I18n.available_locales = [:en, :es]
+
+    # Confirguración regional predeterminada diferente a :en
+    I18n.default_locale = :es
+
+    # Quitar la generación de CSS de los scaffold
+    config.generators do |g|
+      g.stylesheets false
+    end
   end
 end

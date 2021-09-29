@@ -1,0 +1,29 @@
+<div class="p-2">
+  <ol class="breadcrumb mb-0">
+    <li class="breadcrumb-item">
+      <a href="/">Inicio</a>
+    </li>
+    <li class="breadcrumb-item">
+      <a href="<%= people_path%>"> <%= Person.model_name.human(count: 2)%></a>
+    </li>
+    <li class="breadcrumb-item active"><%= Person.model_name.human%></li>
+  </ol>
+</div> 
+<div class="card card-register mx-auto my-2">
+  <div class="card-header"><%= @person.to_s %></div>
+  <div class="card-body">
+      <p>
+        <strong><%= Person.human_attribute_name("name").titleize%>:</strong>
+        <%= @person.name %>
+      </p>
+      <p>
+        <strong><%= Person.human_attribute_name("dni").titleize%>:</strong>
+        <%= @person.dni %>
+      </p>
+    <div class="actions">
+      <%= link_to 'Volver', :back, class: "btn btn-primary" %>
+      <%= link_to 'Editar Person', edit_person_path(@person), class: 'btn btn-primary' %>
+      <%= link_to 'Eliminar ' + Person.model_name.human.titleize, @person, method: :delete, data: { confirm: '¿Esta seguro que desea eliminar?' }, class: "btn btn-danger"%>
+    </div>
+  </div>
+</div>
