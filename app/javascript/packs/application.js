@@ -42,6 +42,9 @@ require('flatpickr')
 import flatpickr from 'flatpickr';
 import { Spanish } from 'flatpickr/dist/l10n/es.js'
 
+
+import 'css/application'
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
